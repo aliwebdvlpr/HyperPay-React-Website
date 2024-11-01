@@ -7,7 +7,7 @@ const CheckoutButton = () => {
 
     const handleCheckout = async () => {
         try {
-            const response = await axios.post('http://localhost:3000/api/checkout'); 
+            const response = await axios.post('https://hyper-pay-react-website-6p7m1s1sr-software-2020s-projects.vercel.app:3000/api/checkout'); 
             console.log('Checkout response:', response.data);
             setCheckoutData(response.data); // Update state with response data
         } catch (error) {

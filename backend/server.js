@@ -2,11 +2,17 @@ const express = require('express');
 const cors = require('cors');
 const https = require('https');
 const querystring = require('querystring');
+const allowedOrigins = [
+    'https://hyper-pay-react-website-6p7m1s1sr-software-2020s-projects.vercel.app',
+];
 
 const app = express();
 
 // Use CORS middleware
 app.use(cors());
+app.use(cors({
+    origin: allowedOrigins,
+}));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
