@@ -2,16 +2,27 @@ const express = require('express');
 const cors = require('cors');
 const https = require('https');
 const querystring = require('querystring');
+
 const allowedOrigins = [
     'https://hyper-pay-react-website-6p7m1s1sr-software-2020s-projects.vercel.app',
+    'http://localhost:3001' // Include localhost for testing in development
 ];
 
 const app = express();
 
-// Use CORS middleware
-app.use(cors());
+// Configure CORS middleware
 app.use(cors({
-    origin: allowedOrigins,
+    origin: function (origin, callback) {
+        // Allow requests with no origin (like mobile apps or curl requests)
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true // Enable if you need to include cookies or authorization headers
 }));
 
 app.use(express.json());
@@ -62,34 +73,3 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
-
-
-
-// const express = require('express');
-// const path = require('path');
-// const axios = require('axios');
-
-// const app = express();
-// const PORT = 5000;
-
-// // Serve static files from the React app
-// app.use(express.static(path.join(__dirname, '../frontend/build')));
-
-// // API route example
-// app.get('/api/data', async (req, res) => {
-//   try {
-//     const response = await axios.get('https://api.example.com/data');
-//     res.json(response.data);
-//   } catch (error) {
-//     res.status(500).send('Error fetching data');
-//   }
-// });
-
-// // Catch-all handler: send React app for all other routes
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
-// });
-
-// app.listen(PORT, () => {
-//   console.log(`Server is running on http://localhost:${PORT}`);
-// });
