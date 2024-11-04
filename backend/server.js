@@ -4,7 +4,7 @@ const https = require('https');
 const querystring = require('querystring');
 
 const allowedOrigins = [
-    /\.vercel\.app$/,
+    'https://hyper-pay-react-website.vercel.app',
     'http://localhost:3001' // Include localhost for testing in development
 ];
 
@@ -31,9 +31,9 @@ app.use(express.urlencoded({ extended: true }));
 app.post('/api/checkout', async (req, res) => {
     const path = '/v1/checkouts';
     const data = querystring.stringify({
-        'entityId': '8a8294174b7ecb28014b9699220015ca',
+        'entityId': '8ac7a4c7820e3114018210976e1017ee',
         'amount': '10.00',
-        'currency': 'SAR',
+        'currency': 'SARPayment',
         'paymentType': 'DB',
         'integrity': 'true'
     });
