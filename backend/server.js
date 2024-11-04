@@ -6,7 +6,7 @@ const querystring = require('querystring');
 const allowedOrigins = [
     '*',
     'https://hyper-pay-react-website-76lvl1jhw-software-2020s-projects.vercel.app',
-    'http://localhost:3001' // Include localhost for testing in development
+    'http://localhost:3000' // Include localhost for testing in development
 ];
 
 const app = express();
