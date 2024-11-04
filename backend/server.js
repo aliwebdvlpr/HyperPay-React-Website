@@ -33,7 +33,7 @@ app.post('/api/checkout', async (req, res) => {
     const data = querystring.stringify({
         'entityId': '8ac7a4c7820e3114018210976e1017ee',
         'amount': '10.00',
-        'currency': 'SARPayment',
+        'currency': 'SAR',
         'paymentType': 'DB',
         'integrity': 'true'
     });
