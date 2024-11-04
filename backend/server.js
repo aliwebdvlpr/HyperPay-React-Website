@@ -46,7 +46,7 @@ app.post('/api/checkout', async (req, res) => {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Content-Length': data.length,
-            'Authorization': 'Bearer OGE4Mjk0MTc0YjdlY2IyODAxNGI5Njk5MjIwMDE1Y2N8c3k2S0pzVDg='
+            'Authorization': 'Bearer OGFjN2E0Yzc4MjBlMzExNDAxODIxMDk3MDJiZTE3ZWF8U1hNNXA0TmM2OA=='
         }
     };
 
