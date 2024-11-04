@@ -4,9 +4,8 @@ const https = require('https');
 const querystring = require('querystring');
 
 const allowedOrigins = [
-    '*',
-    'https://hyper-pay-react-website.vercel.app/',
-    'http://localhost:3000' // Include localhost for testing in development
+    'https://hyper-pay-react-website.vercel.app',
+    'http://localhost:3001' // Include localhost for testing in development
 ];
 
 const app = express();
@@ -29,12 +28,6 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    next();
-    });
-    
 app.post('/api/checkout', async (req, res) => {
     const path = '/v1/checkouts';
     const data = querystring.stringify({
