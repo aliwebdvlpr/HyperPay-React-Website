@@ -4,7 +4,7 @@ const https = require('https');
 const querystring = require('querystring');
 
 const allowedOrigins = [
-    'https://hyper-pay-react-website.vercel.app',
+    /\.vercel\.app$/,
     'http://localhost:3001' // Include localhost for testing in development
 ];
 
